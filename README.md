@@ -1,5 +1,7 @@
 # vibration-anomaly-lab
 
+[![CI](https://github.com/hocky0301/vibration-anomaly-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/hocky0301/vibration-anomaly-lab/actions/workflows/ci.yml)
+
 **The unit of independence is the machine, not the row.** In industrial
 condition monitoring one machine contributes thousands of rows and the health
 label belongs to the machine, so a random split over rows or trials puts the

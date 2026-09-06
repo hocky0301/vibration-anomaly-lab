@@ -2,6 +2,8 @@
 
 # vibration-anomaly-lab
 
+[![CI](https://github.com/hocky0301/vibration-anomaly-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/hocky0301/vibration-anomaly-lab/actions/workflows/ci.yml)
+
 **独立性の単位は行ではなく機械である。** 産業設備の状態監視では、1台の機械が
 数千行のデータを生み、健全性ラベルは機械に属する。したがって行やトライアル単位の
 ランダム分割は同じ機械をフォールドの両側に置き、モデルはその機械を見分けるだけで
