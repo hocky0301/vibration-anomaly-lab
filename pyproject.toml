@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vibration-anomaly-lab"
+version = "0.3.0"
+description = "Group leakage, operating-point conditioning, and small-sample honesty on synthetic vibration data"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scikit-learn>=1.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "matplotlib>=3.7",
+    "ruff>=0.4",
+]
+
+[tool.setuptools]
+packages = ["vibration_anomaly_lab"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100

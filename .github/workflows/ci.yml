@@ -1,0 +1,70 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  OMP_NUM_THREADS: "1"
+  OPENBLAS_NUM_THREADS: "1"
+  MKL_NUM_THREADS: "1"
+  PYTHONHASHSEED: "0"
+
+jobs:
+  compatibility:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: requirements*.txt
+      - name: Install current compatible dependencies
+        run: python -m pip install -e '.[dev]'
+      - name: Unit tests and quick protocol smoke tests
+        run: python -m pytest -q
+      - name: Public hygiene
+        # The optional local tokens and matching lines must not enter the logs.
+        env:
+          FORBIDDEN_TOKENS: ${{ secrets.FORBIDDEN_TOKENS }}
+        run: |
+          if [ -n "$FORBIDDEN_TOKENS" ]; then printf '%s\n' "$FORBIDDEN_TOKENS" > scripts/forbidden.local; fi
+          bash scripts/check_public.sh --identity
+
+  reproduce-reference:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-repro.txt
+      - name: Install reference artifact stack
+        # These pins are for numerical artifact reproduction, not the conditions
+        # under which a scientific claim is asserted to hold.
+        run: python -m pip install -r requirements-repro.txt
+      - name: Generate default synthetic data
+        run: make data
+      - name: Refit and compare every reference JSON field
+        timeout-minutes: 15
+        run: make verify-reference
+      - name: Ensure verification did not change published results
+        run: git diff --exit-code -- results/
+      - name: Run educational demos
+        run: make demo
+      - name: Two-seed sweep smoke test
+        timeout-minutes: 15
+        run: python scripts/sweep_seeds.py --seeds 2 --jobs 2 --quick --out .work/sweep

@@ -1,0 +1,16 @@
+# Dependencies for vibration-anomaly-lab.
+#
+# The synthetic data generator, the vibration_anomaly_lab package,
+# verify_claims.py and scripts/sweep_seeds.py run on these three packages and
+# the Python standard library -- nothing else.  The floors are loose on
+# purpose: only long-stable APIs are used.
+#
+# Verified working on Python 3.11 with numpy 1.26.4, pandas 2.1.4,
+# scikit-learn 1.2.2.
+#
+# Development-only tools (pytest, matplotlib for the figures, ruff) live in
+# requirements-dev.txt so that the runtime footprint stays at three packages.
+
+numpy>=1.24
+pandas>=2.0
+scikit-learn>=1.2

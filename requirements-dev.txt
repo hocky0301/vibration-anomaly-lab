@@ -1,0 +1,5 @@
+# Development extras: tests, figures, linting.  `make setup-dev` installs these.
+-r requirements.txt
+pytest>=7.4
+matplotlib>=3.7
+ruff>=0.4

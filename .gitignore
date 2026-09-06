@@ -1,0 +1,69 @@
+# --- Generated data -------------------------------------------------------
+# data/synthetic/ holds the CSVs written by data/make_synthetic_data.py.
+# They are build products, not sources: the generator is deterministic given
+# its --seed, so `make data` reproduces byte-identical files anywhere.
+# Keeping them out of git keeps the repository small.
+#
+# The global patterns below ignore every common tabular / array / serialised
+# data format anywhere in the tree, which makes it structurally impossible to
+# commit a real-world recording *by accident*: git refuses to stage an ignored
+# path unless it is added with --force.  This repository ships no data files
+# at all -- only the code that generates them.  The committed results/*.json
+# documents and figures/*.png images are not data files and are not ignored.
+data/synthetic/
+*.csv
+*.parquet
+*.npy
+*.npz
+*.h5
+*.feather
+*.pkl
+
+# The local list of identifying tokens that scripts/check_public.sh scans for.
+# It must never be committed: see scripts/forbidden.example.
+scripts/forbidden.local
+
+# --- Python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Packaging / build artefacts
+build/
+dist/
+wheels/
+*.egg-info/
+*.egg
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Test / coverage / type-checker caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# --- Editors and OS -------------------------------------------------------
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Fresh verification outputs (published results are immutable inputs).
+.work/
+
+# Local reproduction evidence (never the reference results)
+.reproduction/

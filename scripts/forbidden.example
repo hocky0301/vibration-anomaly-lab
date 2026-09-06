@@ -1,0 +1,14 @@
+# Copy this file to scripts/forbidden.local (git-ignored) and list, one per
+# line, every token that must never appear in this repository:
+#   - the employer or organisation the work came from
+#   - the event, venue or programme name
+#   - personal names, handles, e-mail fragments
+#   - headline numbers published elsewhere that would join this repository to
+#     that publication (written as plain numbers; matched as whole words)
+# Plain lines are matched case-insensitively as fixed strings.
+# Lines that are only digits and dots are matched as whole words.
+#
+# example-employer-name
+# example-event-name
+# example-person-name
+# 0.1234
