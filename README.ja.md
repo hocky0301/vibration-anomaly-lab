@@ -128,7 +128,7 @@ U03 と U06。[`results/default_draw.json`](results/default_draw.json) から転
 
 ![per-unit scores for protocols a, b, c, e on the default draw](figures/04-protocol-unit-scores.png)
 
-*図04。プロトコル b は故障2個体を上位2位に並べる（個体 AUC 1.000）が、どちらも 0.5 を
+*図04。プロトコル b は故障2個体を両方とも最上位に並べる（個体 AUC 1.000）が、どちらも 0.5 を
 超えない。プロトコル c は両方で 0.5 を超えるが、健全な U10 でも超える。*
 
 ## 読み方
