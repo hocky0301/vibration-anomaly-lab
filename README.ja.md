@@ -280,7 +280,7 @@ make check            # 公開ツリーの点検
 ```
 vibration-anomaly-lab/
 ├── README.md, README.ja.md         this file and its Japanese version
-├── LICENSE                         MIT
+├── LICENSE                         利用は許可制
 ├── Makefile                        setup, setup-dev, data, verify, sweep, figures, test, demo, check, clean, all
 ├── CHANGELOG.md
 ├── pyproject.toml                  package metadata (pip install -e .)
@@ -345,4 +345,4 @@ vibration-anomaly-lab/
 
 ## ライセンス
 
-MIT。[`LICENSE`](LICENSE) を参照。
+閲覧用に公開している。読む・手元で動かす以外の利用は許可制。[`LICENSE`](LICENSE) を参照。2026-09-19 より前の公開版は MIT だった。

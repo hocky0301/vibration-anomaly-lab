@@ -310,7 +310,7 @@ at or above it at the top; the ratio panel is the fault's shape.*
 ```
 vibration-anomaly-lab/
 ├── README.md, README.ja.md         this file and its Japanese version
-├── LICENSE                         MIT
+├── LICENSE                         permission required
 ├── Makefile                        setup, setup-dev, data, verify, sweep, figures, test, demo, check, clean, all
 ├── CHANGELOG.md
 ├── pyproject.toml                  package metadata (pip install -e .)
@@ -383,4 +383,4 @@ not an evaluation.
 
 ## License
 
-MIT. See [`LICENSE`](LICENSE).
+Source-available; any use beyond reading and personal evaluation needs my written permission. See [`LICENSE`](LICENSE). Versions published before 2026-09-19 were under MIT.
